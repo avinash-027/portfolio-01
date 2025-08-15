@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Portfolio | A027</title>
+    <meta name="description" content="A027's web portfolio showcasing projects, skills, and learning journey" />
+    <meta name="keywords" content="Portfolio, Web Development, Projects, Skills, Pico CSS, HTML, JavaScript, GitHub" />
+    <meta name="author" content="A027" />
+
+    <!-- Favicons -->
+    <link rel="icon" href="./assets/favicon.png" type="image/x-icon" />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <div class="container-nav-head bg-img" data-theme="dark">
+        <div>
+            <nav class="container-fluid">
+                <ul>
+                    <li> <img id="img-icon-01" alt="profile-pic"> <strong>A027</strong></li>
+                </ul>
+                <ul>
+                    <li><span id="themeToogle"></span></li>
+                    <!-- <li><a href="#" class="contrast">Home</a></li> -->
+                    <li><a href="#about" class="contrast" onclick="handleClick(event)">About</a></li>
+                    <li><a href="#projects" class="contrast" onclick="handleClick(event)" data-tooltip="Projects"
+                            data-placement="bottom">Projects</a>
+                    </li>
+                    <li><a href="#contact" class="contrast" onclick="handleClick(event)">Contact</a></li>
+                    <li>
+                        <span id="profileIcon" class="floating">
+                            <a class="contrast profileIcon">
+                                <i class="fa-regular fa-circle-user"></i>
+                            </a>
+                            <!-- Profile info -->
+                            <div id="profileInfo">
+                            </div>
+                        </span>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <div>
+            <div class="qoute">
+                <blockquote>
+                    “Everything is connected”
+                </blockquote>
+                <blockquote id="random-qoute">
+                    "No matter where you go, everyone's connected."
+                </blockquote>
+            </div>
+        </div>
+    </div>
+    <!-- Particles container -->
+    <div id="particles-js"></div>
+
+    <div class="qoute-main">
+        <blockquote>
+            "No matter where you are, everyone is always connected."
+            <footer>
+                <cite> - Lain Iwakura (Serial Experiments Lain, Episode 2)</cite>
+            </footer>
+        </blockquote>
+    </div>
+
+    <main class="container">
+        <section id="about">
+            <div>
+                <hgroup>
+                    <h2>About Me <i class="fa-solid fa-user-secret"></i></h2>
+                    <p>Learning...👩‍💻 Reading...📖 Watching...🎞</p>
+                </hgroup>
+                <header>
+                    <p>A highly motivated individual passionate about learning and developing new skills in
+                        technologies, and constantly exploring innovative concepts driven by a strong curiosity to grow.
+                        In spare time, an avid anime fan and follower, always excited to engage with new shows and
+                        discussions.
+                    </p>
+                </header>
+                <hr>
+            </div>
+        </section>
+
+        <section id="edu-exp">
+
+        </section>
+
+        <section id="skills">
+            <div>
+                <hgroup>
+                    <h2>Skills... <i class="fa-solid fa-book"></i></h2>
+                    <h3>Technical</h3>
+                </hgroup>
+                <div class="badge-container">
+                </div>
+            </div>
+            <hr>
+        </section>
+
+        <section id="projects">
+            <div>
+                <h2>Projects <a href="https://github.com/avinash-027" target="_blank" class="contrast"><i
+                            class="fa-brands projIcon fa-github"></i></a> Repos</h2>
+            </div>
+            <hr>
+            <div id="projects-body">
+                <!-- <details>
+                    <summary role="button" class="outline secondary">Title <i class="fa-solid fa-spinner"></i></summary>
+                    <article aria-busy="true"></article>
+                </details> -->
+            </div>
+        </section>
+
+        <section id="contact">
+            <hgroup>
+                <h2>Follow Me <i class="fa-solid fa-bed"></i></h2>
+                <!-- <h3>On Social Media</h3> -->
+            </hgroup>
+            <hr>
+            <div style="display: flex; justify-content: center;">
+                <div class="contact-contents">
+                    <div class="contact-label">Links
+                    </div>
+                    <div class="contact-links"></div>
+                </div>
+            </div>
+        </section>
+
+        <div class="search-box">
+            <form role="search" action="https://www.google.com/search" method="get" target="_blank">
+                <input id="Search" name="q" type="search" placeholder="Search" />
+                <!-- name="q" (as this is what Google expects for its search query parameter). -->
+                <button type="submit" value="Search">Search</button>
+            </form>
+        </div>
+
+        <a href="#">
+            <i class="fa-solid fa-up-long" id="goUp"></i>
+        </a>
+    </main>
+
+    <script type="module" src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS("particles-js", {
+            particles: {
+                number: { value: 85 },
+                shape: { type: "circle" },
+                opacity: { value: 0.1 },
+                color: { value: "#ffffff" },
+                size: { value: 3 },
+                move: { enable: true, speed: 3 },
+            },
+            interactivity: {
+                events: {
+                    onhover: { enable: false, mode: "repulse" },
+                    onclick: { enable: true, mode: "push" }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
