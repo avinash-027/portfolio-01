@@ -1,21 +1,23 @@
 import { profileInfo, projects, skills, quotes, fetchGitHub } from "./infoObj.js"
 
-const themeToggle = document.getElementById('themeToogle');
+const themeToggle = document.getElementById('themeToggle');
 const htmlTag = document.documentElement;
 const navbar = document.querySelector('nav');
 const projectsBody = document.querySelector("#projects #projects-body");
 const imgIcon01 = document.querySelector("#img-icon-01");
 const skillsContainer = document.querySelector("#skills .badge-container");
 const bgImg = document.querySelector(".container-nav-head.bg-img");
-const quoteElement = document.getElementById("random-qoute");
+const quoteElement = document.getElementById("random-quote");
 const contactSection = document.getElementById('contact');
 const contactLinks = contactSection.querySelector('.contact-links');
 const profileContainer = document.getElementById('profileInfo');
+const eduExp = document.getElementById('edu-exp');
+const eduExpCard = document.getElementById('edu-exp-card');
 
 document.addEventListener('DOMContentLoaded', async function () {
     // after DOM load
     try {
-        // await fetchGitHub();
+        await fetchGitHub();
     }
     catch (err) {
         console.log(err)
@@ -23,8 +25,14 @@ document.addEventListener('DOMContentLoaded', async function () {
     loadSkills();
     loadProjs();
     loadSocialLinks();
-    random();
     loadProfileInfo();
+
+    try {
+        random();
+    }
+    catch (err) {
+        console.log(err)
+    }
 
     // Initialize the theme state
     let isDark = true;
@@ -51,11 +59,19 @@ document.addEventListener('DOMContentLoaded', async function () {
 });
 
 function loadSkills() {
-    Object.values(skills).flat().forEach(skill => {
-        const span = document.createElement("span");
-        span.classList.add("badge");
-        span.textContent = skill;
-        skillsContainer.appendChild(span);
+    const containers = {
+        frontEnd: document.querySelector("#frontend-container"),
+        backEnd: document.querySelector("#backend-container"),
+        tools: document.querySelector("#tools-container")
+    };
+
+    Object.entries(skills).forEach(([category, skillList]) => {
+        skillList.forEach(skill => {
+            const span = document.createElement("span");
+            span.classList.add("badge");
+            span.textContent = skill;
+            containers[category].appendChild(span);
+        });
     });
 }
 function loadProjs() {
@@ -70,7 +86,7 @@ function loadProjs() {
                         <i class="link fa-solid fa-up-right-from-square"></i></a>` : ''}
                 </h6>
                 <p>${proj.description}</p>
-                <p>⚪ Tools Used: ${proj.tools ? proj.tools.join(", ") : "N/A"}</p>
+                <p>⚪ ${proj.tools ? proj.tools.join(", ") : "N/A"}</p>
             </article>
         </details>
         `;
@@ -96,9 +112,6 @@ function loadProjs() {
 const bgImgSrc = ["./assets/bg1.jpg", "./assets/bg2.png"]
 
 function random() {
-    // Set image PFP
-    const randomIndexImg = Math.floor(Math.random() * profileInfo.images.length);
-    imgIcon01.setAttribute("src", `${profileInfo.images[randomIndexImg]}`)
     // Set random Quote
     const randomIndex = Math.floor(Math.random() * quotes.length);
     quoteElement.textContent = quotes[randomIndex] ? quotes[randomIndex] : "No matter where you go, everyone's connected.";
@@ -107,6 +120,9 @@ function random() {
     const index = Date.now() % bgImgSrc.length;
     const selectedImage = bgImgSrc[index];
     bgImg.style.backgroundImage = `url("${bgImgSrc[1]}")`;
+    // Set image PFP
+    // const randomIndexImg = Math.floor(Math.random() * profileInfo.images.length);
+    // imgIcon01.setAttribute("src", `${profileInfo.images[randomIndexImg]}`)
 }
 
 function loadProfileInfo() {
@@ -115,7 +131,7 @@ function loadProfileInfo() {
             <p><strong>Name:</strong> ${profileInfo.name}</p>
             <p><strong>Degree:</strong> ${profileInfo.degree}</p>
             <p>
-                <a href=${profileInfo.links.github}" target="_blank" class="contrast">
+                <a href="${profileInfo.links.github}" target="_blank" class="contrast">
                     <i class="fa-brands fa-github"></i> </a>
                 <a href="${profileInfo.links.linkedin}" target="_blank">
                     <i class="fa-brands fa-linkedin"></i> </a>
