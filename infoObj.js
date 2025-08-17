@@ -6,26 +6,26 @@ const profileInfo = {
     github: "https://github.com/avinash-027",
     linkedin: "https://linkedin.com/in/avinash-chinimilli-027x"
   },
-  images: ["./assets/img01.jpg", "./assets/img02.jpg", "./assets/img03.jpg", "./assets/img04.jpg", "./assets/img05.jpeg",
+  images: ["/assets/img01.jpg", "/assets/img02.jpg", "/assets/img03.jpg", "/assets/img04.jpg", "/assets/img05.jpeg",
   ],
 };
 
 const skills = {
-  webDevelopment: [
+  frontEnd: [
     "HTML",
     "CSS",
     "JavaScript",
     "Pico CSS",
-    "ASP.NET MVC",
+    "React.js",
+    "Bootstrap",
+    "Tailwind CSS",
+    "jQuery"
+  ],
+  backEnd: [".NET", "Python", "SQL", "ASP.NET MVC",
     "ASP.NET Web API",
     "Entity Framework Core",
-    "C#",
-    "React.js",
-  ],
-  frameworksAndTechnologies: [".NET"],
-  programmingLanguages: ["Python"],
-  versionControl: ["Git", "GitHub"],
-  databaseTechnologies: ["SQL"],
+    "C#", "GraphQL"],
+  tools: ["Git", "GitHub", "VS Code", "Markdown"],
 }
 
 // Initial Local Projects
@@ -40,15 +40,6 @@ const projects = [
     faIcon: "fa-plane-departure",
   },
   {
-    gitTitle: "",
-    name: "Sentiment Analysis of Product-Based Reviews using Machine Learning Approaches",
-    description:
-      "This project focuses on performing Sentiment Analysis of product reviews gathered from various online platforms. The main goal is to categorize each review into sentiment categories like positive, negative, or neutral. Using Python and Machine Learning techniques, the project analyzes and classifies the review data to deliver accurate and insightful sentiment predictions.",
-    tools: ["Python", "FlaskAPI", "Machine Learning"],
-    link: "",
-    faIcon: "fa-chart-simple",
-  },
-  {
     gitTitle: "t-rex-game",
     name: "T-Rex Game",
     description:
@@ -56,6 +47,15 @@ const projects = [
     tools: ["HTML", "CSS", "JavaScript", "LocalStorage (for saving tasks)"],
     link: "https://github.com/avinash-027/t-rex-game",
     faIcon: "fa-gamepad",
+  },
+  {
+    gitTitle: "",
+    name: "Sentiment Analysis of Product-Based Reviews using Machine Learning Approaches",
+    description:
+      "This project focuses on performing Sentiment Analysis of product reviews gathered from various online platforms. The main goal is to categorize each review into sentiment categories like positive, negative, or neutral. Using Python and Machine Learning techniques, the project analyzes and classifies the review data to deliver accurate and insightful sentiment predictions.",
+    tools: ["Python", "FlaskAPI", "Machine Learning"],
+    link: "",
+    faIcon: "fa-chart-simple",
   },
   {
     gitTitle: "ToDo-List-App",
@@ -114,8 +114,7 @@ const quotes = [
   "Nothing ever goes as planned.",
   "Just do it.",
   "Never too late to start over…",
-  "The trouble is, you think you have time.",
-  "It's about the journey, not the destination.",
+  "It's about the journey, not the destination...but sometimes the destination(the goal) is what truly matters.",
   "The deeper meaning will become evident once you read the book a hundred times.",
   "Nothing ever lasts forever.",
   "They say the world changes when you change, but that's not true.",

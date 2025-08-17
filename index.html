@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Web Portfolio | A027</title>
-    <meta name="description" content="A027's web portfolio showcasing projects, skills, and learning journey" />
-    <meta name="keywords" content="Portfolio, Web Development, Projects, Skills, Pico CSS, HTML, JavaScript, GitHub" />
+    <meta name="description" content="web portfolio showcasing projects, skills, and learning journey" />
+    <meta name="keywords" content="Portfolio, Web Development, Projects, Skills, Pico CSS, HTML, JavaScript, GitHub, A027" />
     <meta name="author" content="A027" />
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:title" content="Web Portfolio | A027">
+    <meta property="og:description" content="web portfolio showcasing projects, skills, and learning journey">
+    <meta property="og:image" content="https://github.com/avinash-027/portfolio-01/assets/favicon.png">
+    <meta property="og:url" content="https://github.com/avinash-027/portfolio-01">
+    <meta property="og:type" content="website">
 
     <!-- Favicons -->
-    <link rel="icon" href="./assets/favicon.png" type="image/x-icon" />
+    <link rel="icon" href="assets/favicon.png" type="image/png" />
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="styles.css" />
 </head>
 
@@ -25,10 +29,10 @@
         <div>
             <nav class="container-fluid">
                 <ul>
-                    <li> <img id="img-icon-01" alt="profile-pic"> <strong>A027</strong></li>
+                    <li> <img id="img-icon-01" src="assets/img02.jpg" alt="pfp"> <strong>A027</strong></li>
                 </ul>
                 <ul>
-                    <li><span id="themeToogle"></span></li>
+                    <li><span id="themeToggle"></span></li>
                     <!-- <li><a href="#" class="contrast">Home</a></li> -->
                     <li><a href="#about" class="contrast" onclick="handleClick(event)">About</a></li>
                     <li><a href="#projects" class="contrast" onclick="handleClick(event)" data-tooltip="Projects"
@@ -51,12 +55,8 @@
 
         <div>
             <div class="qoute">
-                <blockquote>
-                    “Everything is connected”
-                </blockquote>
-                <blockquote id="random-qoute">
-                    "No matter where you go, everyone's connected."
-                </blockquote>
+                <blockquote>“Everything is connected”</blockquote>
+                <blockquote id="random-quote">"No matter where you go, everyone's connected."</blockquote>
             </div>
         </div>
     </div>
@@ -64,11 +64,8 @@
     <div id="particles-js"></div>
 
     <div class="qoute-main">
-        <blockquote>
-            "No matter where you are, everyone is always connected."
-            <footer>
-                <cite> - Lain Iwakura (Serial Experiments Lain, Episode 2)</cite>
-            </footer>
+        <blockquote>"No matter where you are, everyone is always connected."
+            <footer><cite> - Lain Iwakura (Serial Experiments Lain, Episode 2)</cite></footer>
         </blockquote>
     </div>
 
@@ -78,6 +75,7 @@
                 <hgroup>
                     <h2>About Me <i class="fa-solid fa-user-secret"></i></h2>
                     <p>Learning...👩‍💻 Reading...📖 Watching...🎞</p>
+                    <hr>
                 </hgroup>
                 <header>
                     <p>A highly motivated individual passionate about learning and developing new skills in
@@ -86,12 +84,19 @@
                         discussions.
                     </p>
                 </header>
-                <hr>
             </div>
-        </section>
-
-        <section id="edu-exp">
-
+            <div id="edu-exp">
+                <span class="normal-text">Edu & Exp</span>
+                <span class="hover-text">
+                    <h4>Education & Experience
+                        <a href="${profileInfo.links.linkedin}" target="_blank" rel="noopener noreferrer">
+                            <i class="fa-brands fa-linkedin"></i></a>
+                    </h4>
+                    <hr>
+                    <p>Btech CSE : cgpa-7.0 | Intermediate : gpa-9.4 | SSC : gpa-9.3</p>
+                    <p>Sira Consulting Inc., Hyderabad — Internship</p>
+                </span>
+            </div>
         </section>
 
         <section id="skills">
@@ -100,10 +105,25 @@
                     <h2>Skills... <i class="fa-solid fa-book"></i></h2>
                     <h3>Technical</h3>
                 </hgroup>
-                <div class="badge-container">
+                <hr>
+                <div class="grid">
+                    <!-- Frontend Card -->
+                    <article>
+                    <h4>Front-End</h4>
+                    <div class="badge-container" id="frontend-container"></div>
+                    </article>
+                    <!-- Backend Card -->
+                    <article>
+                    <h4>Back-End</h4>
+                    <div class="badge-container" id="backend-container"></div>
+                    </article>
+                    <!-- Tools Card -->
+                    <article>
+                    <h4>Tools</h4>
+                    <div class="badge-container" id="tools-container"></div>
+                    </article>
                 </div>
             </div>
-            <hr>
         </section>
 
         <section id="projects">
@@ -147,7 +167,6 @@
             <i class="fa-solid fa-up-long" id="goUp"></i>
         </a>
     </main>
-
     <script type="module" src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script>
@@ -169,5 +188,4 @@
         });
     </script>
 </body>
-
 </html>
